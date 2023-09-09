@@ -37,7 +37,7 @@ const getPortfolioBySymbol = async (symbol) => {
     allTrades.filter(trade => trade.symbol.trim().toUpperCase() === symbol && moment(trade.date).isValid())
   )
 
-  const historicalPriceData = sortByDate(await getHistoricalPriceBySymbol(symbol))
+  const historicalPriceData = await getHistoricalPriceBySymbol(symbol)
 
   const latestPrice = historicalPriceData.at(-1).close
   const latestPriceDate = moment(historicalPriceData.at(-1).date).format('YYYY-MM-DD')
@@ -186,7 +186,7 @@ const getHistoricalPriceBySymbol = async (symbol) => {
     historicalPriceByDate[key] = value
   })
 
-  const result = Object.values(historicalPriceByDate)
+  const result = sortByDate(Object.values(historicalPriceByDate))
 
   if (result.length < 1) {
     const error = new Error('Failed to get historical price data')
