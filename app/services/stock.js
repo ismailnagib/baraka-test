@@ -15,6 +15,8 @@ const {
   HISTORICAL_PRICE_FILE_NAME_PREFIX
 } = require('../../configs/constants')
 
+const VALID_TRADE_TYPES = Object.values(TRADE_TYPE)
+
 /**
  * Get stock portfolio by symbol
  *
@@ -23,7 +25,7 @@ const {
  * @returns {Promise<Object>}
  */
 const getPortfolioBySymbol = async (symbol) => {
-  symbol = symbol?.trim()?.toUpperCase()
+  symbol = symbol?.trim().toUpperCase()
 
   if (!symbol || !VALID_PRODUCT_SYMBOLS.includes(symbol)) {
     const error = new Error('Invalid symbol')
@@ -34,7 +36,14 @@ const getPortfolioBySymbol = async (symbol) => {
   }
 
   const trades = sortByDate(
-    allTrades.filter(trade => trade.symbol.trim().toUpperCase() === symbol && moment(trade.date).isValid())
+    allTrades.filter(trade => {
+      const isValidProduct = trade.symbol?.trim().toUpperCase() === symbol
+      const isValidType = VALID_TRADE_TYPES.includes(trade.type)
+      const isValidQuantity = Number.isFinite(trade.share_quantity) && trade.share_quantity > 0
+      const isValidDate = moment(trade.date).isValid()
+
+      return isValidProduct && isValidType && isValidQuantity && isValidDate
+    })
   )
 
   const historicalPriceData = await getHistoricalPriceBySymbol(symbol)
@@ -90,7 +99,7 @@ const getPortfolioBySymbol = async (symbol) => {
       total_amount: parseFloat((price * shareQuantity).toFixed(ROUNDING_DECIMAL_DIGIT))
     }
 
-    switch (type?.toLowerCase()) {
+    switch (type.toLowerCase()) {
       case TRADE_TYPE.BUY: {
         totalShareQuantity += shareQuantity
         totalInvested += shareQuantity * price
@@ -120,7 +129,7 @@ const getPortfolioBySymbol = async (symbol) => {
         break
       }
       default: {
-        return
+        break
       }
     }
 
