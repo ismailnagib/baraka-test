@@ -87,7 +87,7 @@ const getPortfolioBySymbol = async (symbol) => {
     const result = {
       ...trade,
       price,
-      total_amount: price * shareQuantity
+      total_amount: parseFloat((price * shareQuantity).toFixed(ROUNDING_DECIMAL_DIGIT))
     }
 
     switch (type?.toLowerCase()) {
@@ -98,6 +98,14 @@ const getPortfolioBySymbol = async (symbol) => {
         break
       }
       case TRADE_TYPE.SELL: {
+        if (totalShareQuantity < shareQuantity) {
+          const error = new Error(`Invalid trade, attempting to sell more shares than what is owned on ${moment(date).format('YYYY-MM-DD')}`)
+
+          error.statusCode = HTTP_STATUS_CODE.BAD_REQUEST
+
+          throw error
+        }
+
         const averageBuyPrice = totalInvested / totalShareQuantity
         const profitLoss = (price - averageBuyPrice) * shareQuantity
 
