@@ -1,9 +1,99 @@
 [
   {
-    "symbol": "AAPL",
+    "symbol": "NVDA",
     "type": "sell",
-    "share_quantity": 500,
+    "share_quantity": 200,
+    "date": "2023-08-27"
+  },
+  {
+    "symbol": "AMC",
+    "type": "buy",
+    "share_quantity": 300,
+    "date": "2023-08-14"
+  },
+  {
+    "symbol": "NVDA",
+    "type": "buy",
+    "share_quantity": 600,
+    "date": "2023-09-07"
+  },
+  {
+    "symbol": "NVDA",
+    "type": "sell",
+    "share_quantity": 200,
+    "date": "2023-08-23"
+  },
+  {
+    "symbol": "NIO",
+    "type": "buy",
+    "share_quantity": 400,
+    "date": "2023-09-07"
+  },
+  {
+    "symbol": "NIO",
+    "type": "buy",
+    "share_quantity": 1000,
+    "date": "2023-08-10"
+  },
+  {
+    "symbol": "F",
+    "type": "buy",
+    "share_quantity": 900,
+    "date": "2023-08-29"
+  },
+  {
+    "symbol": "F",
+    "type": "buy",
+    "share_quantity": 200,
+    "date": "2023-08-14"
+  },
+  {
+    "symbol": "AAPL",
+    "type": "buy",
+    "share_quantity": 800,
+    "date": "2023-09-05"
+  },
+  {
+    "symbol": "AMZN",
+    "type": "buy",
+    "share_quantity": 100,
+    "date": "2023-08-15"
+  },
+  {
+    "symbol": "AMD",
+    "type": "buy",
+    "share_quantity": 700,
+    "date": "2023-08-17"
+  },
+  {
+    "symbol": "TSLA",
+    "type": "sell",
+    "share_quantity": 800,
+    "date": "2023-08-29"
+  },
+  {
+    "symbol": "NIO",
+    "type": "buy",
+    "share_quantity": 2000,
     "date": "2023-08-11"
+  },
+  {
+    "symbol": "TSLA",
+    "type": "buy",
+    "share_quantity": 500,
+    "date": "2023-08-24"
+  },
+  {
+    "symbol": "AMZN",
+    "type": "buy",
+    "share_quantity": 400,
+    "date": "2023-09-06"
+  },
+  {
+    "symbol": "PBR",
+    "type": "sell",
+    "share_quantity": 1000,
+    "date": "2023-08-23"
   },
   {
     "symbol": "AAPL",
@@ -14,11 +104,95 @@
   {
     "symbol": "AAPL",
     "type": "sell",
-    "share_quantity": 250,
-    "date": "2023-08-23"
+    "share_quantity": 500,
+    "date": "2023-08-11"
+  },
+  {
+    "symbol": "TSLA",
+    "type": "sell",
+    "share_quantity": 500,
+    "date": "2023-08-21"
   },
   {
     "symbol": "AAPL",
+    "type": "buy",
+    "share_quantity": 100,
+    "date": "2023-08-15"
+  },
+  {
+    "symbol": "TSLA",
+    "type": "buy",
+    "share_quantity": 900,
+    "date": "2023-08-14"
+  },
+  {
+    "symbol": "AMC",
+    "type": "buy",
+    "share_quantity": 1400,
+    "date": "2023-08-21"
+  },
+  {
+    "symbol": "CCL",
+    "type": "buy",
+    "share_quantity": 700,
+    "date": "2023-08-30"
+  },
+  {
+    "symbol": "AMZN",
+    "type": "buy",
+    "share_quantity": 500,
+    "date": "2023-08-24"
+  },
+  {
+    "symbol": "F",
+    "type": "buy",
+    "share_quantity": 1000,
+    "date": "2023-08-10"
+  },
+  {
+    "symbol": "NVDA",
+    "type": "sell",
+    "share_quantity": 500,
+    "date": "2023-08-14"
+  },
+  {
+    "symbol": "AAPL",
+    "type": "sell",
+    "share_quantity": 100,
+    "date": "2023-08-30"
+  },
+  {
+    "symbol": "AMC",
+    "type": "sell",
+    "share_quantity": 1100,
+    "date": "2023-09-06"
+  },
+  {
+    "symbol": "AMD",
+    "type": "buy",
+    "share_quantity": 500,
+    "date": "2023-08-24"
+  },
+  {
+    "symbol": "NIO",
+    "type": "buy",
+    "share_quantity": 700,
+    "date": "2023-08-23"
+  },
+  {
+    "symbol": "F",
+    "type": "sell",
+    "share_quantity": 200,
+    "date": "2023-08-24"
+  },
+  {
+    "symbol": "AMZN",
+    "type": "buy",
+    "share_quantity": 200,
+    "date": "2023-08-16"
+  },
+  {
+    "symbol": "NVDA",
     "type": "buy",
     "share_quantity": 100,
     "date": "2023-08-15"
@@ -30,10 +204,64 @@
     "date": "2023-08-15"
   },
   {
-    "symbol": "NVDA",
+    "symbol": "CCL",
+    "type": "buy",
+    "share_quantity": 2500,
+    "date": "2023-08-25"
+  },
+  {
+    "symbol": "AMC",
+    "type": "buy",
+    "share_quantity": 600,
+    "date": "2023-08-11"
+  },
+  {
+    "symbol": "AMC",
     "type": "sell",
+    "share_quantity": 800,
+    "date": "2023-08-28"
+  },
+  {
+    "symbol": "AMZN",
+    "type": "buy",
+    "share_quantity": 200,
+    "date": "2023-08-17"
+  },
+  {
+    "symbol": "AMD",
+    "type": "buy",
+    "share_quantity": 700,
+    "date": "2023-08-16"
+  },
+  {
+    "symbol": "TSLA",
+    "type": "buy",
+    "share_quantity": 300,
+    "date": "2023-08-16"
+  },
+  {
+    "symbol": "PBR",
+    "type": "buy",
     "share_quantity": 500,
-    "date": "2023-08-14"
+    "date": "2023-08-25"
+  },
+  {
+    "symbol": "TSLA",
+    "type": "buy",
+    "share_quantity": 100,
+    "date": "2023-08-15"
+  },
+  {
+    "symbol": "NIO",
+    "type": "sell",
+    "share_quantity": 3000,
+    "date": "2023-08-18"
+  },
+  {
+    "symbol": "F",
+    "type": "sell",
+    "share_quantity": 600,
+    "date": "2023-08-22"
   },
   {
     "symbol": "NVDA",
@@ -42,15 +270,27 @@
     "date": "2023-08-11"
   },
   {
-    "symbol": "NVDA",
+    "symbol": "PBR",
+    "type": "buy",
+    "share_quantity": 2000,
+    "date": "2023-08-14"
+  },
+  {
+    "symbol": "AAPL",
     "type": "sell",
-    "share_quantity": 250,
+    "share_quantity": 200,
     "date": "2023-08-23"
   },
   {
-    "symbol": "NVDA",
+    "symbol": "PBR",
+    "type": "sell",
+    "share_quantity": 1500,
+    "date": "2023-08-31"
+  },
+  {
+    "symbol": "AMD",
     "type": "buy",
-    "share_quantity": 100,
-    "date": "2023-08-15"
+    "share_quantity": 400,
+    "date": "2023-08-11"
   }
 ]
