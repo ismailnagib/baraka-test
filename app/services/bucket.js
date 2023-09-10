@@ -1,9 +1,9 @@
-const stock = require('./stock')
-const buckets = require('../configs/buckets')
+const stockService = require('./stock')
+const buckets = require('../../configs/buckets')
 
 const {
   HTTP_STATUS_CODE
-} = require('../configs/constants')
+} = require('../../configs/constants')
 
 /**
  * Get stock portfolio by bucket name
@@ -32,7 +32,7 @@ const getPortfolioByBucketName = async (bucketName) => {
   } = bucket
 
   const portfolio = await Promise.all(
-    symbols.map(symbol => stock.getPortfolioBySymbol(symbol).catch(error => {
+    symbols.map(symbol => stockService.getPortfolioBySymbol(symbol).catch(error => {
       console.error(error)
 
       return { symbol, error: error.message }

@@ -3,7 +3,7 @@ const axios = require('axios')
 const fs = require('node:fs/promises')
 const path = require('node:path')
 
-const allTrades = require('../trades.json')
+const allTrades = require('../../trades.json')
 
 const {
   VALID_PRODUCT_SYMBOLS,
@@ -13,7 +13,7 @@ const {
   ROUNDING_DECIMAL_DIGIT,
   HISTORICAL_PRICE_DIRECTORY,
   HISTORICAL_PRICE_FILE_NAME_PREFIX
-} = require('../configs/constants')
+} = require('../../configs/constants')
 
 /**
  * Get stock portfolio by symbol
@@ -151,13 +151,13 @@ const getHistoricalPriceBySymbol = async (symbol) => {
   const url = `${BARAKA_API_HOST}/v1/finance_market/quotes/${symbol}/historical?range=month&interval=day`
 
   const { data: { data: historicalPrice = [] } } = await axios.get(url).catch(error => {
-    console.error(error)
+    console.error(`Request to ${url} failed, error:`, error.message)
 
     return { data: {} }
   })
 
   const historicalPriceFileName = `${HISTORICAL_PRICE_FILE_NAME_PREFIX}-${symbol}.json`
-  const historicalPriceFilePath = path.join(__dirname, '..', HISTORICAL_PRICE_DIRECTORY, historicalPriceFileName)
+  const historicalPriceFilePath = path.join(__dirname, '../..', HISTORICAL_PRICE_DIRECTORY, historicalPriceFileName)
 
   let savedHistoricalPrice = []
 
@@ -166,7 +166,7 @@ const getHistoricalPriceBySymbol = async (symbol) => {
   } catch (error) {
     // This is to handle if the file does not exist
 
-    console.error(error)
+    console.error(error.message)
 
     savedHistoricalPrice = []
   }
@@ -189,7 +189,7 @@ const getHistoricalPriceBySymbol = async (symbol) => {
   const result = sortByDate(Object.values(historicalPriceByDate))
 
   if (result.length < 1) {
-    const error = new Error('Failed to get historical price data')
+    const error = new Error(`Failed to get historical price data for ${symbol}`)
 
     error.statusCode = HTTP_STATUS_CODE.NOT_FOUND
 

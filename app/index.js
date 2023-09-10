@@ -1,8 +1,7 @@
-const PORT = 3000
-
 const express = require('express')
 
 const router = require('./route')
+const { PORT } = require('../configs/constants')
 
 const app = express()
 

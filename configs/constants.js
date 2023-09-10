@@ -1,4 +1,5 @@
 module.exports = Object.freeze({
+  PORT: 3000,
   VALID_PRODUCT_SYMBOLS: [
     'PBR',
     'AAPL',

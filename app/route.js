@@ -1,5 +1,5 @@
-const stock = require('./stock')
-const bucket = require('./bucket')
+const stockService = require('./services/stock')
+const bucketService = require('./services/bucket')
 
 const { HTTP_STATUS_CODE } = require('../configs/constants')
 
@@ -13,7 +13,7 @@ const router = (app) => {
   app.get('/portfolio/stocks', (req, res) => {
     const { symbol } = req.query
 
-    return stock.getPortfolioBySymbol(symbol)
+    return stockService.getPortfolioBySymbol(symbol)
       .then(result => res.status(HTTP_STATUS_CODE.OK).json(result))
       .catch(error => errorHandler(error, res))
   })
@@ -21,7 +21,7 @@ const router = (app) => {
   app.get('/portfolio/buckets', (req, res) => {
     const { name } = req.query
 
-    return bucket.getPortfolioByBucketName(name)
+    return bucketService.getPortfolioByBucketName(name)
       .then(result => res.status(HTTP_STATUS_CODE.OK).json(result))
       .catch(error => errorHandler(error, res))
   })
