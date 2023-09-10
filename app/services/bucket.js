@@ -2,7 +2,8 @@ const stockService = require('./stock')
 const buckets = require('../../configs/buckets')
 
 const {
-  HTTP_STATUS_CODE
+  HTTP_STATUS_CODE,
+  ROUNDING_DECIMAL_DIGIT
 } = require('../../configs/constants')
 
 /**
@@ -40,7 +41,6 @@ const getPortfolioByBucketName = async (bucketName) => {
   )
 
   let totalShareQuantity = 0
-  let totalLatestPrice = 0
   let totalInvested = 0
   let totalCurrentValue = 0
   let realizedProfitLoss = 0
@@ -53,7 +53,6 @@ const getPortfolioByBucketName = async (bucketName) => {
       symbol,
       error,
       total_share_quantity: productShareQuantity,
-      latest_price: productLatestPrice,
       invested_amount: productInvestedAmount,
       current_value: productCurrentValue,
       realized_profit_loss: productRealizedProfitLoss,
@@ -67,7 +66,6 @@ const getPortfolioByBucketName = async (bucketName) => {
     }
 
     totalShareQuantity += productShareQuantity
-    totalLatestPrice += productLatestPrice
     totalInvested += productInvestedAmount
     totalCurrentValue += productCurrentValue
     realizedProfitLoss += productRealizedProfitLoss
@@ -81,17 +79,18 @@ const getPortfolioByBucketName = async (bucketName) => {
   })
 
   const averageBuyPrice = totalShareQuantity > 0 ? (totalInvested / totalShareQuantity) : 0
+  const latestPrice = totalShareQuantity > 0 ? (totalCurrentValue / totalShareQuantity) : 0
 
   return {
     name,
     total_share_quantity: totalShareQuantity,
-    average_buy_price: averageBuyPrice,
-    latest_price: totalLatestPrice,
-    invested_amount: totalInvested,
-    current_value: totalCurrentValue,
-    realized_profit_loss: realizedProfitLoss,
-    unrealized_profit_loss: unrealizedProfitLoss,
-    product: productProfitLosses
+    average_buy_price: parseFloat(averageBuyPrice.toFixed(ROUNDING_DECIMAL_DIGIT)),
+    latest_price: parseFloat(latestPrice.toFixed(ROUNDING_DECIMAL_DIGIT)),
+    invested_amount: parseFloat(totalInvested.toFixed(ROUNDING_DECIMAL_DIGIT)),
+    current_value: parseFloat(totalCurrentValue.toFixed(ROUNDING_DECIMAL_DIGIT)),
+    realized_profit_loss: parseFloat(realizedProfitLoss.toFixed(ROUNDING_DECIMAL_DIGIT)),
+    unrealized_profit_loss: parseFloat(unrealizedProfitLoss.toFixed(ROUNDING_DECIMAL_DIGIT)),
+    profit_losses: productProfitLosses
   }
 }
 
